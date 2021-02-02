@@ -1,7 +1,6 @@
 # MyMovieApp
-Simple CRUD front-end application developed using Angular8 + Bootstrap4
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+Simple CRUD front-end application developed using Angular 8 + Bootstrap 4
 
 ## Development server
 
