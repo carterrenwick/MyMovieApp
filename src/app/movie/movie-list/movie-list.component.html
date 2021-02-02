@@ -1,18 +1,11 @@
 <table class="table table-striped">
-    <!-- <colgroup>
-        <col>
-        <col>
-        <col>
-        <col>
-        <col style="width: 25%;">
-    </colgroup> -->
     <thead>
         <tr>
             <th scope="col">Title</th>
             <th scope="col">Genre</th>
             <th scope="col">Rating</th>
             <th scope="col">Release Date</th>
-            <th scope="col">Actions</th>
+            <th scope="col" class="text-center">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +14,7 @@
             <td>{{movie.genre}}</td>
             <td>{{movie.rating | percent}}</td>
             <td>{{movie.releaseDate | date}}</td>
-            <td>
+            <td class="fit-width">
                 <button class="btn btn-outline-secondary mr-2" (click)="onEditClick(movie)">
                     <fa-icon [icon]="faEdit"></fa-icon>
                     Edit
