@@ -1,6 +1,6 @@
 # MyMovieApp
 
-Simple CRUD front-end application developed using Angular 8 + Bootstrap 4
+Simple front-end CRUD application developed using Angular 8 + Bootstrap 4
 
 ## Development server
 
