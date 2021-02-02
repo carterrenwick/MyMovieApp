@@ -1,0 +1,8 @@
+div {
+    z-index: 1000;
+    box-shadow: 10px 10px 5px grey;
+    position: fixed;
+    padding-right: 1em;
+    top: 1vh;
+    left: 5vw;
+}

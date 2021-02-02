@@ -1,0 +1,5 @@
+<div *ngIf="message" [@show-hide-animation]
+    [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error', 'alert-warning': message.type === 'warn' }">
+    <button type="button" style="margin-left: 0.5em; outline: none" class="close" (click)="close()">&times;</button>
+    {{message.text}}
+</div>

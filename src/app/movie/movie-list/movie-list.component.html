@@ -1,0 +1,48 @@
+<table class="table table-striped">
+    <!-- <colgroup>
+        <col>
+        <col>
+        <col>
+        <col>
+        <col style="width: 25%;">
+    </colgroup> -->
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movieList">
+            <td>{{movie.title}}</td>
+            <td>{{movie.genre}}</td>
+            <td>{{movie.rating | percent}}</td>
+            <td>{{movie.releaseDate | date}}</td>
+            <td>
+                <button class="btn btn-outline-secondary mr-2" (click)="onEditClick(movie)">
+                    <fa-icon [icon]="faEdit"></fa-icon>
+                    Edit
+                </button>
+                <button class="btn btn-outline-danger" (click)="onDeleteClick(movie)">
+                    <fa-icon [icon]="faTrashAlt"></fa-icon>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<app-modal id="edit-movie-modal" [title]="'Edit Movie ('+selectedMovie?.title+')'">
+    <app-add-edit-movie [selectedMovie]="selectedMovie" (movieUpdated)="onMovieUpdate($event)"></app-add-edit-movie>
+</app-modal>
+
+<app-modal id="delete-movie-modal"
+    [title]="'Are you sure you want to delete \''+selectedMovie?.title+'\'?'">
+    <div class="pt-4 text-right">
+        <button class="btn btn-outline-danger mr-2" (click)="onDeleteConfirmation()">Delete</button>
+        <button class="btn btn-outline-secondary" (click)="modalService.close('delete-movie-modal')">Cancel</button>
+    </div>
+</app-modal>

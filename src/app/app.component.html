@@ -1,0 +1,31 @@
+<!-- <router-outlet></router-outlet> -->
+<app-alert></app-alert>
+
+<div class="container py-3">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div class="row justify-content-between">
+            <div class="col">
+              <h3>Movie List</h3>
+            </div>
+            <div class="col text-right">
+              <button class="btn btn-outline-success" (click)="modalService.open('add-movie-modal')">
+                <fa-icon [icon]="faPlus"></fa-icon>
+                Add Movie
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <app-movie-list [movieList]="movieList"></app-movie-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal id="add-movie-modal" [title]="'Add Movie'">
+  <app-add-edit-movie (movieCreated)="onMovieCreation($event)"></app-add-edit-movie>
+</app-modal>
