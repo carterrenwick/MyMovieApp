@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo '*** START BUILD ***'
+                sh 'npm install'
+                sh 'npm run build --prod'
             }
         }
         stage('Test') {
