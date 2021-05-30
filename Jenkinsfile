@@ -2,7 +2,7 @@ pipeline {
     agent any
   
     environment {        
-        SSH_SERVER_CREDENTIAL_ID = "test-ssh-key-id"
+        SSH_SERVER_CREDENTIAL_ID = "bad-laptop"
     }
 
     stages {
