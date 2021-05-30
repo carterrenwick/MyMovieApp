@@ -47,5 +47,6 @@ pipeline {
                 }
                 echo '*** END DEPLOY ***'
           }
+        }
     }
 }
