@@ -9,12 +9,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo '*** START BUILD ***'
-              if(isUnix()) {
+              script {
+                 if(isUnix()) {
                 sh 'npm install'
                 sh 'npm run build --prod'
               } else {
                 bat 'npm install'
                 bat 'npm run build --prod'
+              }
               }
             }
         }
