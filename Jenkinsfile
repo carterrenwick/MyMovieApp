@@ -1,5 +1,9 @@
 pipeline {
     agent any
+  
+    environment {        
+        SSH_SERVER_CREDENTIAL_ID = "test-ssh-key-id"
+    }
 
     stages {
         stage('Build') {
@@ -16,8 +20,32 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-            }
-        }
+                echo '*** START DEPLOY ***'
+                script {
+                    sshPublisher(
+                        continueOnError: false, 
+                        failOnError: true,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: SSH_SERVER_CREDENTIAL_ID,
+                                transfers: [
+                                    sshTransfer(
+                                        sourceFiles: '**/dist/*',
+                                        removePrefix: 'dist',
+                                        remoteDirectory: 'jenkins-deploy-test'
+                                    ),
+//                                     sshTransfer(
+//                                         sourceFiles: '/wars/**/*.war',
+//                                         removePrefix: 'wars',
+//                                         remoteDirectory: 'jenkins-deploy-test'
+//                                     )
+                                ],
+                                verbose: true
+                            )
+                        ]
+            )
+                }
+                echo '*** END DEPLOY ***'
+          }
     }
 }
