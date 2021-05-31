@@ -37,7 +37,7 @@ pipeline {
                                 configName: SSH_SERVER_CREDENTIAL_ID,
                                 transfers: [
                                     sshTransfer(
-                                        sourceFiles: '**/dist/*',
+                                        sourceFiles: 'dist/*',
                                         removePrefix: 'dist',
                                         remoteDirectory: 'jenkins-deploy-test'
                                     ),
